@@ -6,7 +6,7 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+PROJECT_SOURCES = linebuf3x3.v mnist_clf.v mnist_feat.v mnist_top.v tt_um_mnist_sobel_vic.v 
 
 ifneq ($(GATES),yes)
 
@@ -34,6 +34,7 @@ COMPILE_ARGS 		+= -I$(SRC_DIR)
 
 # Include the testbench sources:
 VERILOG_SOURCES += $(PWD)/tb.v
+COMPILE_ARGS += -I$(SRC_DIR)
 TOPLEVEL = tb
 
 # List test modules to run, separated by commas and without the .py suffix:
